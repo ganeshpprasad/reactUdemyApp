@@ -1,8 +1,17 @@
 import React from 'react';
+import VideoThumb from './videoThumb';
 
 const VideoList = (props) => {
-    return <ul>
-        {props.videos.length}
+    
+    const videosList = props.videos.map( video => {
+        return <VideoThumb 
+            onVideoSelect={props.onVideoSelect} 
+            key={video.etag} 
+            video={video}/>
+    } );
+    
+    return <ul className='col-md-5'>
+        {videosList}
     </ul>;
 }
 
